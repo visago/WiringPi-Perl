@@ -27,5 +27,5 @@ softTone.o \
 wiringSerial.o \
 wiringShift.o \
 wiringpi_wrap.o \
--lwiringPi \
+-lwiringPi -lwiringPiDev \
 -o wiringpi.so

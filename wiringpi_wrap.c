@@ -1507,8 +1507,9 @@ SWIG_Perl_SetModule(swig_module_info *module) {
 /* -------- TYPES TABLE (BEGIN) -------- */
 
 #define SWIGTYPE_p_char swig_types[0]
-static swig_type_info *swig_types[2];
-static swig_module_info swig_module = {swig_types, 1, 0, 0, 0, 0};
+#define SWIGTYPE_p_unsigned_char swig_types[1]
+static swig_type_info *swig_types[3];
+static swig_module_info swig_module = {swig_types, 2, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -1877,6 +1878,7 @@ SWIG_AsCharPtrAndSize(SV *obj, char** cptr, size_t* psize, int *alloc)
 #include "wiringPi/wiringPi/wiringPi.h"
 #include "wiringPi/wiringPi/wiringShift.h"
 #include "wiringPi/wiringPi/wiringSerial.h"
+#include "wiringPi/devLib/lcd.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -2341,6 +2343,564 @@ XS(_wrap_millis) {
 }
 
 
+XS(_wrap_lcdHome) {
+  {
+    int arg1 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 1) || (items > 1)) {
+      SWIG_croak("Usage: lcdHome(fd);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdHome" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    lcdHome(arg1);
+    ST(argvi) = sv_newmortal();
+    
+    XSRETURN(argvi);
+  fail:
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdClear) {
+  {
+    int arg1 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 1) || (items > 1)) {
+      SWIG_croak("Usage: lcdClear(fd);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdClear" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    lcdClear(arg1);
+    ST(argvi) = sv_newmortal();
+    
+    XSRETURN(argvi);
+  fail:
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdDisplay) {
+  {
+    int arg1 ;
+    int arg2 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdDisplay(fd,state);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdDisplay" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdDisplay" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    lcdDisplay(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdCursor) {
+  {
+    int arg1 ;
+    int arg2 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdCursor(fd,state);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdCursor" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdCursor" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    lcdCursor(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdCursorBlink) {
+  {
+    int arg1 ;
+    int arg2 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdCursorBlink(fd,state);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdCursorBlink" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdCursorBlink" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    lcdCursorBlink(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdSendCommand) {
+  {
+    int arg1 ;
+    unsigned char arg2 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    unsigned char val2 ;
+    int ecode2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdSendCommand(fd,command);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdSendCommand" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_unsigned_SS_char SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdSendCommand" "', argument " "2"" of type '" "unsigned char""'");
+    } 
+    arg2 = (unsigned char)(val2);
+    lcdSendCommand(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdPosition) {
+  {
+    int arg1 ;
+    int arg2 ;
+    int arg3 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    int val3 ;
+    int ecode3 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 3) || (items > 3)) {
+      SWIG_croak("Usage: lcdPosition(fd,x,y);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdPosition" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdPosition" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    ecode3 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(2), &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "lcdPosition" "', argument " "3"" of type '" "int""'");
+    } 
+    arg3 = (int)(val3);
+    lcdPosition(arg1,arg2,arg3);
+    ST(argvi) = sv_newmortal();
+    
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdCharDef) {
+  {
+    int arg1 ;
+    int arg2 ;
+    unsigned char *arg3 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    void *argp3 = 0 ;
+    int res3 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 3) || (items > 3)) {
+      SWIG_croak("Usage: lcdCharDef(fd,index,data);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdCharDef" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdCharDef" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    res3 = SWIG_ConvertPtr(ST(2), &argp3,SWIGTYPE_p_unsigned_char, 0 |  0 );
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "lcdCharDef" "', argument " "3"" of type '" "unsigned char [8]""'"); 
+    } 
+    arg3 = (unsigned char *)(argp3);
+    lcdCharDef(arg1,arg2,arg3);
+    ST(argvi) = sv_newmortal();
+    
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdPutchar) {
+  {
+    int arg1 ;
+    unsigned char arg2 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    unsigned char val2 ;
+    int ecode2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdPutchar(fd,data);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdPutchar" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_unsigned_SS_char SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdPutchar" "', argument " "2"" of type '" "unsigned char""'");
+    } 
+    arg2 = (unsigned char)(val2);
+    lcdPutchar(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdPuts) {
+  {
+    int arg1 ;
+    char *arg2 = (char *) 0 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int res2 ;
+    char *buf2 = 0 ;
+    int alloc2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if ((items < 2) || (items > 2)) {
+      SWIG_croak("Usage: lcdPuts(fd,string);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdPuts" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    res2 = SWIG_AsCharPtrAndSize(ST(1), &buf2, NULL, &alloc2);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "lcdPuts" "', argument " "2"" of type '" "char *""'");
+    }
+    arg2 = (char *)(buf2);
+    lcdPuts(arg1,arg2);
+    ST(argvi) = sv_newmortal();
+    
+    if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+    XSRETURN(argvi);
+  fail:
+    
+    if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdPrintf) {
+  {
+    int arg1 ;
+    char *arg2 = (char *) 0 ;
+    void *arg3 = 0 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int res2 ;
+    char *buf2 = 0 ;
+    int alloc2 = 0 ;
+    int argvi = 0;
+    dXSARGS;
+    
+    if (items < 2) {
+      SWIG_croak("Usage: lcdPrintf(fd,message,...);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdPrintf" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    res2 = SWIG_AsCharPtrAndSize(ST(1), &buf2, NULL, &alloc2);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "lcdPrintf" "', argument " "2"" of type '" "char *""'");
+    }
+    arg2 = (char *)(buf2);
+    lcdPrintf(arg1,arg2,arg3);
+    ST(argvi) = sv_newmortal();
+    
+    if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+    XSRETURN(argvi);
+  fail:
+    
+    if (alloc2 == SWIG_NEWOBJ) free((char*)buf2);
+    SWIG_croak_null();
+  }
+}
+
+
+XS(_wrap_lcdInit) {
+  {
+    int arg1 ;
+    int arg2 ;
+    int arg3 ;
+    int arg4 ;
+    int arg5 ;
+    int arg6 ;
+    int arg7 ;
+    int arg8 ;
+    int arg9 ;
+    int arg10 ;
+    int arg11 ;
+    int arg12 ;
+    int arg13 ;
+    int val1 ;
+    int ecode1 = 0 ;
+    int val2 ;
+    int ecode2 = 0 ;
+    int val3 ;
+    int ecode3 = 0 ;
+    int val4 ;
+    int ecode4 = 0 ;
+    int val5 ;
+    int ecode5 = 0 ;
+    int val6 ;
+    int ecode6 = 0 ;
+    int val7 ;
+    int ecode7 = 0 ;
+    int val8 ;
+    int ecode8 = 0 ;
+    int val9 ;
+    int ecode9 = 0 ;
+    int val10 ;
+    int ecode10 = 0 ;
+    int val11 ;
+    int ecode11 = 0 ;
+    int val12 ;
+    int ecode12 = 0 ;
+    int val13 ;
+    int ecode13 = 0 ;
+    int argvi = 0;
+    int result;
+    dXSARGS;
+    
+    if ((items < 13) || (items > 13)) {
+      SWIG_croak("Usage: lcdInit(rows,cols,bits,rs,strb,d0,d1,d2,d3,d4,d5,d6,d7);");
+    }
+    ecode1 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(0), &val1);
+    if (!SWIG_IsOK(ecode1)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "lcdInit" "', argument " "1"" of type '" "int""'");
+    } 
+    arg1 = (int)(val1);
+    ecode2 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(1), &val2);
+    if (!SWIG_IsOK(ecode2)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "lcdInit" "', argument " "2"" of type '" "int""'");
+    } 
+    arg2 = (int)(val2);
+    ecode3 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(2), &val3);
+    if (!SWIG_IsOK(ecode3)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "lcdInit" "', argument " "3"" of type '" "int""'");
+    } 
+    arg3 = (int)(val3);
+    ecode4 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(3), &val4);
+    if (!SWIG_IsOK(ecode4)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "lcdInit" "', argument " "4"" of type '" "int""'");
+    } 
+    arg4 = (int)(val4);
+    ecode5 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(4), &val5);
+    if (!SWIG_IsOK(ecode5)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode5), "in method '" "lcdInit" "', argument " "5"" of type '" "int""'");
+    } 
+    arg5 = (int)(val5);
+    ecode6 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(5), &val6);
+    if (!SWIG_IsOK(ecode6)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode6), "in method '" "lcdInit" "', argument " "6"" of type '" "int""'");
+    } 
+    arg6 = (int)(val6);
+    ecode7 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(6), &val7);
+    if (!SWIG_IsOK(ecode7)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode7), "in method '" "lcdInit" "', argument " "7"" of type '" "int""'");
+    } 
+    arg7 = (int)(val7);
+    ecode8 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(7), &val8);
+    if (!SWIG_IsOK(ecode8)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode8), "in method '" "lcdInit" "', argument " "8"" of type '" "int""'");
+    } 
+    arg8 = (int)(val8);
+    ecode9 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(8), &val9);
+    if (!SWIG_IsOK(ecode9)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode9), "in method '" "lcdInit" "', argument " "9"" of type '" "int""'");
+    } 
+    arg9 = (int)(val9);
+    ecode10 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(9), &val10);
+    if (!SWIG_IsOK(ecode10)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode10), "in method '" "lcdInit" "', argument " "10"" of type '" "int""'");
+    } 
+    arg10 = (int)(val10);
+    ecode11 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(10), &val11);
+    if (!SWIG_IsOK(ecode11)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode11), "in method '" "lcdInit" "', argument " "11"" of type '" "int""'");
+    } 
+    arg11 = (int)(val11);
+    ecode12 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(11), &val12);
+    if (!SWIG_IsOK(ecode12)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode12), "in method '" "lcdInit" "', argument " "12"" of type '" "int""'");
+    } 
+    arg12 = (int)(val12);
+    ecode13 = SWIG_AsVal_int SWIG_PERL_CALL_ARGS_2(ST(12), &val13);
+    if (!SWIG_IsOK(ecode13)) {
+      SWIG_exception_fail(SWIG_ArgError(ecode13), "in method '" "lcdInit" "', argument " "13"" of type '" "int""'");
+    } 
+    arg13 = (int)(val13);
+    result = (int)lcdInit(arg1,arg2,arg3,arg4,arg5,arg6,arg7,arg8,arg9,arg10,arg11,arg12,arg13);
+    ST(argvi) = SWIG_From_int  SWIG_PERL_CALL_ARGS_1((int)(result)); argvi++ ;
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    XSRETURN(argvi);
+  fail:
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    SWIG_croak_null();
+  }
+}
+
+
 XS(_wrap_serialOpen) {
   {
     char *arg1 = (char *) 0 ;
@@ -2581,15 +3141,19 @@ XS(_wrap_serialPrintf) {
 /* -------- TYPE CONVERSION AND EQUIVALENCE RULES (BEGIN) -------- */
 
 static swig_type_info _swigt__p_char = {"_p_char", "char *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_unsigned_char = {"_p_unsigned_char", "unsigned char *", 0, 0, (void*)0, 0};
 
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_char,
+  &_swigt__p_unsigned_char,
 };
 
 static swig_cast_info _swigc__p_char[] = {  {&_swigt__p_char, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_unsigned_char[] = {  {&_swigt__p_unsigned_char, 0, 0, 0},{0, 0, 0, 0}};
 
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_char,
+  _swigc__p_unsigned_char,
 };
 
 
@@ -2619,6 +3183,18 @@ static swig_command_info swig_commands[] = {
 {"wiringpic::delay", _wrap_delay},
 {"wiringpic::delayMicroseconds", _wrap_delayMicroseconds},
 {"wiringpic::millis", _wrap_millis},
+{"wiringpic::lcdHome", _wrap_lcdHome},
+{"wiringpic::lcdClear", _wrap_lcdClear},
+{"wiringpic::lcdDisplay", _wrap_lcdDisplay},
+{"wiringpic::lcdCursor", _wrap_lcdCursor},
+{"wiringpic::lcdCursorBlink", _wrap_lcdCursorBlink},
+{"wiringpic::lcdSendCommand", _wrap_lcdSendCommand},
+{"wiringpic::lcdPosition", _wrap_lcdPosition},
+{"wiringpic::lcdCharDef", _wrap_lcdCharDef},
+{"wiringpic::lcdPutchar", _wrap_lcdPutchar},
+{"wiringpic::lcdPuts", _wrap_lcdPuts},
+{"wiringpic::lcdPrintf", _wrap_lcdPrintf},
+{"wiringpic::lcdInit", _wrap_lcdInit},
 {"wiringpic::serialOpen", _wrap_serialOpen},
 {"wiringpic::serialClose", _wrap_serialClose},
 {"wiringpic::serialPutchar", _wrap_serialPutchar},
