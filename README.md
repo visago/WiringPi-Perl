@@ -1,24 +1,27 @@
-#WiringPi for Perl
+# WiringPi for Perl
 
-WiringPi: An implementation of most of the Arduino Wiring functions for the Raspberry Pi
+WiringPi: An implementation of most of the Arduino Wiring functions for the Odroid
+boxes 
 
-#Quick Build
+# Quick Build
 
-##Requirements
+## Requirements
 
-`sudo apt-get install swig2.0 libperl-dev`
+```
+sudo apt-get install swig3.0 libperl-dev
+```
 
-##Building
+## Building
 
-Clone this repo: `git clone http://github.com/wiringpi/wiringpi-perl`
+Clone this repo: `git clone http://github.com/visago/WiringPi-Perl`
 
-Enter the directory: `cd wiringpi-perl`
+Enter the directory: `cd WiringPi-Perl`
 
 Run the build script: `./build.sh`
 
-##Testing
+## Testing
 
-Run `./test.pl` to import and test the module by reading the pull-up on an i2c pin.
+Run `./test.pl` to import and test the module by flipping the TESTPIN (default 21) high and low every second
 
 Use `sudo perl -d -e 1` to play with the library in interactive mode.
 
@@ -26,3 +29,4 @@ Use `sudo perl -d -e 1` to play with the library in interactive mode.
 
 This is a wrapper around Gordon Henderson's WiringPi, full details of the library here: http://www.wiringpi.com
 
+This was forked from https://github.com/WiringPi/WiringPi-Perl which doesn't support Odroids.
