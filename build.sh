@@ -3,10 +3,13 @@ echo "Updating submodule..."
 git submodule update --init
 
 echo "Generating bindings..."
-swig2.0 -perl wiringpi.i
+swig -perl wiringpi.i
 
 CORE=`perl -MConfig -e 'print $Config{archlib}'`/CORE
-WIRINGPI=WiringPi/wiringPi
+WIRINGPI=wiringPi/wiringPi
+
+echo "Cleaning up old  *.o *.so files"
+rm -rf *.o *.so
 
 echo "Building against: $CORE"
 
@@ -24,4 +27,5 @@ softTone.o \
 wiringSerial.o \
 wiringShift.o \
 wiringpi_wrap.o \
+-lwiringPi \
 -o wiringpi.so
